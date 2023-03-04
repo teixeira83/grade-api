@@ -26,7 +26,7 @@
     "test:e2e": "jest --forceExit --detectOpenHandles --config ./test/jest-e2e.json",
     "doc": "npx @compodoc/compodoc -p tsconfig.json",
     "doc:serve": "npm run doc && npx @compodoc/compodoc -s",
-    "prettier:write": "prettier --write ./**/*.{ts,js,json}",
+    "prettier:write": "prettier --write ./**/*.{ts,js,json}"
   },
   "dependencies": {
     "@fastify/multipart": "6.0.0",
