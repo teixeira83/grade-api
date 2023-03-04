@@ -20,13 +20,16 @@
     "ecmaVersion": 12
   },
   "rules": {
+    
     "no-plusplus": "off",
     "no-shadow": "off",
     "no-useless-constructor": "off",
     "no-underscore-dangle": "off",
     "func-names": "off",
     "class-methods-use-this": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {
+      "endOfLine": "auto"
+    }],
     "no-unused-expressions": "off",
     "@typescript-eslint/naming-convention": "error",
     "@typescript-eslint/ban-ts-ignore": "off",
