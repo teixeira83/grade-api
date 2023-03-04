@@ -1,5 +1,5 @@
 {
-  "name": "facilita-bancos-api",
+  "name": "grade-api",
   "version": "1.0.0",
   "description": "Api responsável pela interface com dados cadastrais de bancos e usuários de bancos, e dados cadastrais de taxas dos bancos",
   "author": "Grupo Boticário",
