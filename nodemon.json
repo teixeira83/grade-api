@@ -1,0 +1,11 @@
+{
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "watch": [
+    "src"
+  ],
+  "ext": ".js",
+  "ignore": [],
+  "exec": "node --trace-warnings ./src/index.js"
+}

@@ -1,0 +1,26 @@
+metadata:
+  tags:
+    - fastify
+    - api
+    - node
+    - javascript
+  name: facilita-bancos-api
+  description: >-
+    Api responsável pela interface com dados cadastrais de bancos e usuários de
+    bancos, e dados cadastrais de taxas dos bancos
+  annotations:
+    github.com/project-slug: grupoboticario/prodfin-programa-facilita-facilita-bancos-api
+    github.com/team-slug: grupoboticario/mooz-aurora
+    argocd/app-selector: app=facilita-bancos-api
+    argocd/proxy-url: /argocd/produto-financeiro
+    newrelic/entity-name: facilita-bancos-api
+    sonarqube.org/project-key: prodfin-programa-facilita-facilita-bancos-api
+    backstage.io/techdocs-ref: url:https://github.com/grupoboticario/prodfin-programa-facilita-facilita-bancos-api
+spec:
+  lifecycle: experimental
+  type: service
+  owner: mooz-aurora
+  system: programa-facilita
+  domain: produto-financeiro
+apiVersion: backstage.io/v1alpha1
+kind: Component
