@@ -10,9 +10,6 @@ import multipart from '@fastify/multipart'
 import { AppModule } from './app.module'
 import { HttpExceptionFilter, WinstonLogger } from './common'
 import { PROJECT_DESCRIPTION, PROJECT_NAME, PROJECT_VERSION } from './constants'
-import AuthMiddleware from './common/middlewares/auth/auth.middleware'
-import ClientIdMiddleware from './common/middlewares/clientId.middleware'
-import { MdGenerator } from './utils/mdGenerator'
 
 require('newrelic')
 
@@ -34,11 +31,6 @@ const DEFAULT_API_VERSION = '1'
  * Default url endpoint for Swagger UI.
  */
 const DEFAULT_SWAGGER_PREFIX = '/docs'
-
-/**
- * Default markdown file path.
- */
-const DEFAULT_MD_FILE_PATH = '../../documents/docs/index.md'
 
 /**
  * Setup the Swagger (UI).
@@ -72,10 +64,6 @@ async function bootstrap() {
     { logger: ['error', 'debug', 'log', 'warn', 'verbose'] }
   )
 
-  if (process.env.NODE_ENV !== ('production' || 'build')) {
-    new MdGenerator(DEFAULT_MD_FILE_PATH).create('# Programa Facilita - API')
-  }
-
   app.useLogger(app.get(WinstonLogger))
   app.setGlobalPrefix(baseUrl)
   app.enableCors()
@@ -87,9 +75,6 @@ async function bootstrap() {
   const fastifyApp = app.getHttpAdapter().getInstance() as FastifyInstance
   fastifyApp.register(multipart)
   fastifyApp.addHook('preValidation', (req, res, next) => {
-    new ClientIdMiddleware().use(req)
-    new AuthMiddleware().use(req)
-
     next()
   })
 

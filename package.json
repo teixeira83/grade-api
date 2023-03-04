@@ -8,9 +8,6 @@
   "scripts": {
     "cron-update-duration-type": "node ./dist/cronjobs/updateDuration/index.js",
     "prebuild": "rimraf dist",
-    "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
-    "prisma": "prisma",
-    "prisma:seed": "prisma db seed",
     "build": "nest build",
     "generate": "nest g",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -34,12 +31,7 @@
     "precommit": "lint-staged && npm run lint",
     "prepush": "npm run test",
     "prepare": "is-ci || husky install",
-    "commit": "cz",
-    "apply-db-migrations": "DATABASE_URL=postgresql://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST:$DATABASE_PORT/$DATABASE_NAME npx prisma migrate deploy",
-    "apply-db-migrations-seeds": "DATABASE_URL=postgresql://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST:$DATABASE_PORT/$DATABASE_NAME npx prisma db seed"
-  },
-  "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "commit": "cz"
   },
   "dependencies": {
     "@fastify/multipart": "6.0.0",
@@ -54,7 +46,6 @@
     "@nestjs/swagger": "^4.7.9",
     "@nestjs/terminus": "^7.0.1",
     "@newrelic/winston-enricher": "^4.0.1",
-    "@prisma/client": "^4.9.0",
     "@types/markdown-it": "^12.2.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.12.2",
@@ -110,7 +101,6 @@
     "lint-staged": "^13.1.0",
     "node-mocks-http": "^1.12.1",
     "prettier": "^2.8.3",
-    "prisma": "^4.9.0",
     "sonarqube-scanner": "^3.0.0",
     "source-map-support": "^0.5.21",
     "supertest": "^6.3.3",

@@ -6,11 +6,9 @@ import { APP_INTERCEPTOR } from '@nestjs/core'
 import { LoggingModule } from './common'
 import { LoggingInterceptor } from './common/logging/logging.interceptor'
 import { HealthModule } from './health/health.module'
-import { BankModule } from './bank/bank.module'
-import { UserModule } from './user/user.module'
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true }), LoggingModule, HealthModule, BankModule, UserModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), LoggingModule, HealthModule],
   providers: [
     {
       provide: APP_INTERCEPTOR,
