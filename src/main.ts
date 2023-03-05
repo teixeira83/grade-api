@@ -6,9 +6,8 @@ import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { useContainer } from 'class-validator'
 import { FastifyInstance } from 'fastify'
-import multipart from '@fastify/multipart'
 import { AppModule } from './app.module'
-import { HttpExceptionFilter, WinstonLogger } from './common'
+import { HttpExceptionFilter } from './common'
 import { PROJECT_DESCRIPTION, PROJECT_NAME, PROJECT_VERSION } from './constants'
 
 require('newrelic')
@@ -64,7 +63,6 @@ async function bootstrap() {
     { logger: ['error', 'debug', 'log', 'warn', 'verbose'] }
   )
 
-  app.useLogger(app.get(WinstonLogger))
   app.setGlobalPrefix(baseUrl)
   app.enableCors()
 
@@ -73,7 +71,6 @@ async function bootstrap() {
   useContainer(app.select(AppModule), { fallbackOnErrors: true })
 
   const fastifyApp = app.getHttpAdapter().getInstance() as FastifyInstance
-  fastifyApp.register(multipart)
   fastifyApp.addHook('preValidation', (req, res, next) => {
     next()
   })
