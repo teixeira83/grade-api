@@ -5,8 +5,7 @@ import { UpdateClassDto } from './dto/update-class.dto';
 @Injectable()
 export class ClassService {
   create(createClassDto: CreateClassDto) {
-    const createdClass = new this.catModel(createCatDto);
-    return createdCat.save();
+    return 'This action adds a new class';
   }
 
   findAll() {
