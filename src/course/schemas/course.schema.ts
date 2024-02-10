@@ -7,8 +7,6 @@ export class Course {
   @Prop()
   name: string
 
-  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'WeekDays' }] })
-  periods: WeekDay[]
 }
 
 export type CourseDocument = HydratedDocument<Course>

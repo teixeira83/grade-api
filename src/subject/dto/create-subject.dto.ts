@@ -9,7 +9,7 @@ export class CreateSubjectDto {
     example: 'Web Programming'
   })
   @IsString()
-  name: string
+  title?: string
 
   @ApiProperty({
     type: String,
@@ -29,9 +29,9 @@ export class CreateSubjectDto {
 
   @ApiProperty({
     type: String,
-    description: 'Hour time of subject, using HH:mm' ,
+    description: 'StartHour of subject, using HH:mm' ,
     example: '18:20'
   })
   @IsString()
-  startTime: string
+  startHour: string
 }

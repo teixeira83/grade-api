@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common'
 import { CourseService } from './course.service'
-import { CreateCourseDto } from './dto/create-course.dto'
+import { CreateCourseDto, addSemersterToCourseDto } from './dto/create-course.dto'
 import { UpdateCourseDto } from './dto/update-course.dto'
 import { ApiTags } from '@nestjs/swagger'
 
@@ -14,6 +14,11 @@ export class CourseController {
     return this.courseService.create(createCourseDto)
   }
 
+  @Post(':id/semester')
+  addSemester(@Param('id') courseId, @Body() createCourseDto: addSemersterToCourseDto) {
+    return this.courseService.addSemester(courseId, createCourseDto)
+  }
+
   @Get()
   findAll() {
     return this.courseService.findAll()
@@ -22,11 +27,6 @@ export class CourseController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.courseService.findOne(id)
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCourseDto: UpdateCourseDto) {
-    return this.courseService.update(id, updateCourseDto)
   }
 
   @Delete(':id')
