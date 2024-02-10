@@ -15,7 +15,7 @@ import { CourseModule } from './course/course.module';
     HealthModule,
     ClassModule,
     MongooseModule.forRoot(
-      `mongodb+srv://${process.env.DATAPASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_ADDRESS}/?retryWrites=true&w=majority`
+      process.env.DATABASE_URL
     ),
     SubjectModule,
     WeekDaysModule,

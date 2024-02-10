@@ -2,11 +2,36 @@ import { ApiProperty } from '@nestjs/swagger'
 import { IsString } from 'class-validator'
 
 export class CreateSubjectDto {
+  
   @ApiProperty({
     type: String,
-    description: 'description of subject',
-    example: 'Database Modelation with NonSQL databases'
+    description: 'Name of subject',
+    example: 'Web Programming'
   })
   @IsString()
-  description: string
+  name: string
+
+  @ApiProperty({
+    type: String,
+    description: 'Teachers name',
+    example: 'Fernando Carvalho'
+  })
+  @IsString()
+  teachersName: string
+
+  @ApiProperty({
+    type: String,
+    description: 'Link to join class whatsapp group',
+    example: 'https://chatwhasapp.com/invite/123456'
+  })
+  @IsString()
+  whatsAppLink: string
+
+  @ApiProperty({
+    type: String,
+    description: 'Hour time of subject, using HH:mm' ,
+    example: '18:20'
+  })
+  @IsString()
+  startTime: string
 }

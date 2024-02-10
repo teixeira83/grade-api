@@ -14,7 +14,7 @@ export class SubjectRepository {
 
   async create(subjectToBeCreated: CreateSubjectDto): Promise<Subject> {
     const classCreated = await this.subjectModel.create({
-      description: subjectToBeCreated.description
+      description: subjectToBeCreated.name
     })
     return classCreated.toObject()
   }

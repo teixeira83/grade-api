@@ -2,8 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ClassService } from './class.service';
 import { CreateClassDto } from './dto/create-class.dto';
 import { UpdateClassDto } from './dto/update-class.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('class')
+@ApiTags('Class - DEPRECATED')
 export class ClassController {
   constructor(private readonly classService: ClassService) {}
 
