@@ -18,7 +18,6 @@ export class CourseService {
 
   findAll(): Promise<Course[]> {
     console.log('entrou no find all service')
-    return [] as any
     return this.courseRepository.findAll()
   }
 
